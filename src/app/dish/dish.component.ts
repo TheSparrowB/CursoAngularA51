@@ -8,6 +8,9 @@ import { Dish } from '../interfaces/interface.barrel';
 })
 export class DishComponent implements OnInit {
 
+  //#region GLOBAL VARIABLES
+  totalIngredients: number = 0;
+
   private _dish;
   get dish(): Dish{
     return this._dish;
@@ -26,10 +29,12 @@ export class DishComponent implements OnInit {
     dish.ingredients.forEach(ing => {
       total += ing.quantity;
     });
-    dish.totalIngredients = total;
+    this.totalIngredients = total;
+
     this._dish = dish;
    
   };
+  //#endregion
 
   constructor() { }
 
@@ -38,7 +43,10 @@ export class DishComponent implements OnInit {
 
 
   generateName(name: string) : string{
-    return `El nombre es: ${name}`;
+    return `El nombre del platillo es: ${name}`;
+  }
+  mostrarTotal(total: number) : string{
+    return `Utiliza un total de ingredientes: ${total}`;
   }
 
 }

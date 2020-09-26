@@ -15,7 +15,8 @@ export class MenuComponent implements OnInit {
     { name: "Chanfainita", ingredients: [{ name: "Papa", quantity: 2}, 
                                          { name: "Bofe", quantity: 1}]},
     { name: "Arroz con Pollo", ingredients: [{ name: "Arroz", quantity: 1}, 
-                                         { name: "Llopo", quantity: 4}]}
+                                         { name: "Llopo", quantity: 4}]},
+    null
   ];
 
   constructor() { }
