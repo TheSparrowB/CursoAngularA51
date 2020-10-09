@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dish } from '../interfaces/interface.barrel';
+import { Dish } from '../interfaces';
 
 @Component({
   selector: 'app-menu',
