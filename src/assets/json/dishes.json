@@ -10,6 +10,7 @@
         { "name": "camote", "quantity": "0.5un"}
       ],
       "rating": 5,
+      "spiciness": 4,
       "category": "Marina",
       "price": 15,
       "inventoryStatus": "INSTOCK",
@@ -24,9 +25,10 @@
         { "name": "zanahoria", "quantity": "7un" }
       ],
       "rating": 4,
+      "spiciness": 2,
       "category": "Criollo",
       "price": 18,
-      "inventoryStatus": "OUTOFSTOCK",
+      "inventoryStatus": "INSTOCK",
       "image": "https://tipsparatuviaje.com/wp-content/uploads/2019/08/arroz-con-pollo.jpg"
     },
     {
@@ -38,6 +40,7 @@
         { "name": "mani", "quantity": "1un" }
       ],
       "rating": 3,
+      "spiciness": 2,
       "category": "Criollo",
       "price": 25,
       "inventoryStatus": "INSTOCK",
@@ -52,10 +55,26 @@
         { "name": "huevo", "quantity": "2un"}
       ],
       "rating": 5,
+      "spiciness": 0,
       "category": "China",
       "price": 17,
       "inventoryStatus": "INSTOCK",
       "image": "https://tipsparatuviaje.com/wp-content/uploads/2019/08/arroz-chaufa-peruano.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Desayuno Inglés",
+      "ingredient": [
+        { "name": "tocino", "quantity": "3un" },
+        { "name": "frijoles", "quantity": "1kg" },
+        { "name": "huevo", "quantity": "2un"}
+      ],
+      "rating": 2,
+      "spiciness": 6,
+      "category": "Europea",
+      "price": 10,
+      "inventoryStatus": "INSTOCK",
+      "image": "https://tipsparatuviaje.com/wp-content/uploads/2020/03/desayuno-ingles-completo-1.jpg"
     }
   ] 
 }

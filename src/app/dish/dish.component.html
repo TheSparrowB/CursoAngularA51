@@ -14,7 +14,17 @@
     </div>
     
     <div class="product-grid-item-bottom">
+        <div class="product-name" [ngSwitch]="dishBase.spiciness">
+            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="0">No pica</span>
+            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="1">Pica poco</span>
+            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="2">Pica</span>
+            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="3">Pica mucho</span>
+            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="4">Infierno xD</span>
+            <span *ngSwitchDefault>No hay registro de picor</span>
+        </div>
+    </div>
+    <div class="product-grid-item-bottom">
         <span class="product-price">{{dishBase.price | currency: 'S/.'}}</span>
-        <p-button icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="dishBase.inventoryStatus === 'OUTOFSTOCK'" (click)="addDish()"></p-button>
+        <p-button icon="pi pi-shopping-cart" label="Agregar" [disabled]="dishBase.inventoryStatus === 'OUTOFSTOCK'" (click)="addDish()"></p-button>
     </div>
 </div>

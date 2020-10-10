@@ -15,7 +15,6 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
-import { RadioButtonModule } from 'primeng/radiobutton';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DishPipe } from './pipes/dish.pipe';
 import { IngredientPipe } from './pipes/ingredient.pipe';
@@ -43,8 +42,7 @@ import { IngredientPipe } from './pipes/ingredient.pipe';
     RatingModule,
     TableModule,
     ScrollingModule,
-    PanelModule,
-    RadioButtonModule
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

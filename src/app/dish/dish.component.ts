@@ -34,4 +34,12 @@ export class DishComponent implements OnInit {
     this.onChangeEvent.emit(this.dishBase);
   }
 
+  setSpicinessClass(spiciness: number){
+    if(spiciness<3){
+      return "noPica";
+    }
+
+    return "siPica";
+  }
+
 }
