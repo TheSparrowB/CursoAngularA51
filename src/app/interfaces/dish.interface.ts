@@ -1,8 +1,14 @@
-import { Ingredients } from './ingredients.interface';
+import { Ingredient } from './ingredient.interface';
 
-export interface Dish{
-
-    name?: string,
-    ingredients?: Ingredients[]
-    
-}
+export interface Dish {
+    id?: number;
+    name?: string;
+    ingredient?: Ingredient[];
+    rating?: number;
+    category?: string;
+    price?: number;
+    inventoryStatus?: string;
+    image?: string;
+    quantity?: number;
+  }
+  

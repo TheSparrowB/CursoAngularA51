@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Dish } from '../interfaces';
 
 @Component({
@@ -9,44 +9,29 @@ import { Dish } from '../interfaces';
 export class DishComponent implements OnInit {
 
   //#region GLOBAL VARIABLES
-  totalIngredients: number = 0;
-
   private _dish;
-  get dish(): Dish{
+
+  get dishBase(): Dish{
     return this._dish;
   }
-  @Input() set dish(dish: Dish){
-    console.log(dish);
-    if(!dish){
-      dish = { name: "Hamburguesa", ingredients: [{ name: "Papa", quantity: 1}, 
-                                                        { name: "Carne", quantity: 1},
-                                                        { name: "Lechuga", quantity: 1}]}
-    }
 
-    dish.name = this.generateName(dish.name);
-    
-    let total = 0;
-    dish.ingredients.forEach(ing => {
-      total += ing.quantity;
-    });
-    this.totalIngredients = total;
-
-    this._dish = dish;
-   
+  @Input() set dishBase(dish: Dish){
+    this._dish = dish;   
   };
+
+  @Output() onChangeEvent: EventEmitter<Dish> = new EventEmitter();
   //#endregion
 
+
   constructor() { }
+
 
   ngOnInit(): void {
   }
 
 
-  generateName(name: string) : string{
-    return `El nombre del platillo es: ${name}`;
-  }
-  mostrarTotal(total: number) : string{
-    return `Utiliza un total de ingredientes: ${total}`;
+  addDish(){
+    this.onChangeEvent.emit(this.dishBase);
   }
 
 }

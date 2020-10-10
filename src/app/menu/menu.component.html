@@ -1,5 +1,30 @@
+<h1>ESCOJA SU MENÚ</h1>
 
-<div *ngFor="let dish of dishes">
-    <app-dish [dish]="dish"></app-dish>
+<p-table *ngIf="menuList.length>0" [value]="menuList" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Lista de Platos Seleccionados</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-idish>
+        <tr>
+            <td>{{idish | dish}}</td>
+            <td><button pButton type="button" (click)="removeDish(idish)" icon="pi pi-arrow-circle-down"></button></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br/>
+
+<div class="p-dataview p-component p-dataview-grid">
+    <div class="p-dataview-content">
+        <div class="p-grid">
+            
+            <div *ngFor="let dish of dishList" class="p-col-12 p-md-4 p-lg-4">
+                <app-dish [dishBase]="dish" (onChangeEvent)="updateMenu($event)"></app-dish>
+            </div>
+
+        </div>
+    </div>
 </div>
-

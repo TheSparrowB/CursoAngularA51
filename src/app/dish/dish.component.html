@@ -1,2 +1,20 @@
-<p>{{dish.name}}</p>
-<p>{{mostrarTotal(totalIngredients)}}</p>
+<div class="product-grid-item card">
+    <div class="product-grid-item-top">     
+        <div>
+            <i class="pi pi-tag product-category-icon"></i>
+            <span class="product-category">{{dishBase.category}}</span>
+        </div>
+        <span [class]="'product-badge status-' + dishBase.inventoryStatus.toLowerCase()">{{dishBase.inventoryStatus}}</span>
+    </div>
+
+    <div class="product-grid-item-content">
+        <img [src]="dishBase.image" [alt]="dishBase.name">
+        <div class="product-name">{{dishBase.name}}</div>
+        <p-rating [(ngModel)]="dishBase.rating" [readonly]="true" [cancel]="false"></p-rating>
+    </div>
+    
+    <div class="product-grid-item-bottom">
+        <span class="product-price">${{dishBase.price}}</span>
+        <p-button icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="dishBase.inventoryStatus === 'OUTOFSTOCK'" (click)="addDish()"></p-button>
+    </div>
+</div>

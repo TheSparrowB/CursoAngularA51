@@ -18,7 +18,8 @@
     ],
     "resolveJsonModule": true,
     "paths": {
-      "@gx/models": ["src/app/interfaces"]
+      "@gx/models": ["src/app/interfaces"],
+      "@gx/pipes": ["src/app/pipes"]
     } 
   }
 }

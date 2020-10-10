@@ -2,6 +2,7 @@
 
 <h1>El país encontrado es: {{selected.name | uppercase}}</h1>
 <h1>{{total | currency: selected.currencies[0].symbol}}</h1>
+<h1>{{total | filesize: "ZB" | empty }}</h1>
 
 <div *ngFor="let mon of selected.currencies">
     <p>{{mon.name}} - {{mon.symbol}}</p>
