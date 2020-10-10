@@ -1,5 +1,5 @@
-
-[
+{
+  "dishes": [
     {
       "id": 1,
       "name": "Ceviche",
@@ -57,4 +57,5 @@
       "inventoryStatus": "INSTOCK",
       "image": "https://tipsparatuviaje.com/wp-content/uploads/2019/08/arroz-chaufa-peruano.jpg"
     }
-  ]
+  ] 
+}

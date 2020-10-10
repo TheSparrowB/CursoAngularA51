@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.dishList = (dishes as any).default;
+    this.dishList = dishes.dishes;
   }
 
 

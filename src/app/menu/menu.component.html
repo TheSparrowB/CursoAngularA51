@@ -29,9 +29,11 @@
     <div class="p-dataview-content">
         <div class="p-grid">
             
-            <div *ngFor="let dish of dishList" class="p-col-12 p-md-4 p-lg-4">
-                <app-dish [dishBase]="dish" (onChangeEvent)="updateMenu($event)"></app-dish>
-            </div>
+                <ng-container *ngFor="let dish of dishList">
+                    <div *ngIf="dish.inventoryStatus!='OUTOFSTOCK'"  class="p-col-12 p-md-4 p-lg-4">
+                        <app-dish [dishBase]="dish" (onChangeEvent)="updateMenu($event)"></app-dish>
+                    </div>
+                </ng-container>
 
         </div>
     </div>
