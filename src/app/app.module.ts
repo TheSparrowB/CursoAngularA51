@@ -14,8 +14,10 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { PanelModule } from 'primeng/panel';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DishPipe } from './pipes/dish.pipe';
+import { IngredientPipe } from './pipes/ingredient.pipe';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { DishPipe } from './pipes/dish.pipe';
     CountriesComponent,
     FilesizePipe,
     EmptyPipe,
-    DishPipe
+    DishPipe,
+    IngredientPipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { DishPipe } from './pipes/dish.pipe';
     ButtonModule,
     RatingModule,
     TableModule,
-    ScrollingModule
+    ScrollingModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

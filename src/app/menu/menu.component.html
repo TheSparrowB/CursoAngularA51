@@ -1,19 +1,27 @@
 <h1>ESCOJA SU MENÚ</h1>
 
-<p-table *ngIf="menuList.length>0" [value]="menuList" >
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Lista de Platos Seleccionados</th>
-            <th></th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-idish>
-        <tr>
-            <td>{{idish | dish}}</td>
-            <td><button pButton type="button" (click)="removeDish(idish)" icon="pi pi-arrow-circle-down"></button></td>
-        </tr>
-    </ng-template>
-</p-table>
+<p-panel *ngIf="menuList.length>0" header="Lista de platos agregados" [toggleable]="true">
+    <p-table styleClass="p-datatable-gridlines p-datatable-striped" [value]="menuList" [scrollable]="true" scrollHeight="200px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Plato</th>
+                <th>Ingredientes a Utilizar</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-idish>
+            <tr>
+                <td>{{idish | dish}}</td>
+                <td>
+                    <ol>
+                        <li *ngFor="let ing of idish.ingredient">{{ing | ingredient}}</li>
+                    </ol>
+                </td>
+                <td><button pButton type="button" (click)="removeDish(idish)" icon="pi pi-arrow-circle-down"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
 
 <br/>
 
