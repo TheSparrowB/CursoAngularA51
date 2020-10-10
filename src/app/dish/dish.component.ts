@@ -38,8 +38,11 @@ export class DishComponent implements OnInit {
     if(spiciness<3){
       return "noPica";
     }
+    else if(spiciness<5){
+      return "siPica";
+    }
 
-    return "siPica";
+    return "";
   }
 
 }

@@ -14,12 +14,12 @@
     </div>
     
     <div class="product-grid-item-bottom">
-        <div class="product-name" [ngSwitch]="dishBase.spiciness">
-            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="0">No pica</span>
-            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="1">Pica poco</span>
-            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="2">Pica</span>
-            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="3">Pica mucho</span>
-            <span [ngClass]="setSpicinessClass(dishBase.spiciness)" *ngSwitchCase="4">Infierno xD</span>
+        <div class="product-name" [ngSwitch]="dishBase.spiciness" [ngClass]="setSpicinessClass(dishBase.spiciness)">
+            <span *ngSwitchCase="0">No pica</span>
+            <span *ngSwitchCase="1">Pica poco</span>
+            <span *ngSwitchCase="2">Pica</span>
+            <span *ngSwitchCase="3">Pica mucho</span>
+            <span *ngSwitchCase="4">Infierno xD</span>
             <span *ngSwitchDefault>No hay registro de picor</span>
         </div>
     </div>
