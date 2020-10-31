@@ -15,10 +15,13 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
+import { HttpClientModule } from '@angular/common/http';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DishPipe } from './pipes/dish.pipe';
 import { IngredientPipe } from './pipes/ingredient.pipe';
-
+import { BoxShadowDirective } from './directives/box-shadow.directive';
+import { DetailComponent } from './countries/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { IngredientPipe } from './pipes/ingredient.pipe';
     FilesizePipe,
     EmptyPipe,
     DishPipe,
-    IngredientPipe
+    IngredientPipe,
+    BoxShadowDirective,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,9 @@ import { IngredientPipe } from './pipes/ingredient.pipe';
     RatingModule,
     TableModule,
     ScrollingModule,
-    PanelModule
+    ToastModule,
+    PanelModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

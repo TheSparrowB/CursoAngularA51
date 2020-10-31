@@ -1,22 +1,27 @@
-<h1>ESCOJA SU MENÚ</h1>
+<h1>{{name}} ESCOJA SU MENÚ</h1>
+<input type="text" [(ngModel)]="name">
+<p *ngIf="precioTotal>0">El precio total de la carta seleccionada es {{precioTotal}}</p>
+
+
+<button (click)="send()" type="button">ENVIAR</button>
 
 <p-panel *ngIf="menuList.length>0" header="Lista de platos agregados" [toggleable]="true">
     <p-table styleClass="p-datatable-gridlines p-datatable-striped" [value]="menuList" [scrollable]="true" scrollHeight="200px">
         <ng-template pTemplate="header">
             <tr>
                 <th>Plato</th>
-                <th>Ingredientes a Utilizar</th>
+                <!-- <th>Ingredientes a Utilizar</th> -->
                 <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-idish>
             <tr>
                 <td>{{idish | dish}}</td>
-                <td>
+                <!-- <td>
                     <ol>
                         <li *ngFor="let ing of idish.ingredient">{{ing | ingredient}}</li>
                     </ol>
-                </td>
+                </td> -->
                 <td><button pButton type="button" (click)="removeDish(idish)" icon="pi pi-arrow-circle-down"></button></td>
             </tr>
         </ng-template>
@@ -30,7 +35,7 @@
         <div class="p-grid">
             
                 <ng-container *ngFor="let dish of dishList">
-                    <div *ngIf="dish.inventoryStatus!='OUTOFSTOCK'"  class="p-col-12 p-md-4 p-lg-4">
+                    <div *ngIf="dish.inventoryStatus!='OUTOFSTOCK'"  class="p-col-12 p-md-4 p-lg-4"><!--[appBoxShadow]="true"-->
                         <app-dish [dishBase]="dish" (onChangeEvent)="updateMenu($event)"></app-dish>
                     </div>
                 </ng-container>

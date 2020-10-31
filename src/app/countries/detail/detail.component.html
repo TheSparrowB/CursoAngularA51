@@ -1,0 +1,5 @@
+<h1>Este es el detalle</h1>
+
+<div *ngIf="(countriesService.selectedCountry$ | async) as country">
+    <pre>{{ country | json}}</pre>
+</div>

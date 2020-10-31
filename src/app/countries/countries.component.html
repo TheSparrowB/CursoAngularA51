@@ -1,11 +1,25 @@
 <button (click)="send(selected.currencies[0].name)">ENVIAR</button>
+<input type="text" [(ngModel)]="code" value="code">
+<button type="button" (click)="getInfo(code)">GET INFO</button>
 
-<h1>El país encontrado es: {{selected.name | uppercase}}</h1>
-<h1>{{total | currency: selected.currencies[0].symbol}}</h1>
-<h1>{{total | filesize: "ZB" | empty }}</h1>
 
-<div *ngFor="let mon of selected.currencies">
-    <p>{{mon.name}} - {{mon.symbol}}</p>
+<div *ngIf="(countriesService.selectedCountry$ | async) as country">
+
+    <h1>El país encontrado es: {{country.name | uppercase}}</h1>
+    <h1>{{total | currency: country.currencies[0].symbol}}</h1>
+    <h1>{{total | filesize: "ZB" | empty }}</h1>
+
+    <div *ngFor="let mon of country.currencies">
+        <p>{{mon.name}} - {{mon.symbol}}</p>
+    </div>
+
 </div>
 
-<pre>{{ selected | json}}</pre>
+<div *ngIf="(countriesService.error$ | async) as error">
+    <h1>{{error}}</h1>
+</div>
+
+
+<hr>
+
+<!-- <app-detail></app-detail> -->
