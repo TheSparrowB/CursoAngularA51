@@ -1,72 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer, Dish } from '@gx/models';
-import * as dishes from "../../assets/json/dishes.json";
 import { AppComponent } from '../app.component';
 import { MenuService } from '../utils/menu.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-  name = "Bryan";
   dishList: Dish[];
-  menuList: Dish[] = [];
-  precioTotal: number = 0;
+  cartList: Dish[];
+  precioTotal = 0;
 
-  constructor(
-    private menuService: MenuService,
-    private app: AppComponent
-  ) { }
+  constructor(private menuService: MenuService, private app: AppComponent) {}
 
   ngOnInit(): void {
-    this.dishList = dishes.dishes;
+    this.getMenuList();
+    this.cartList = this.menuService.cart;
   }
 
-
-  updateMenu(dish: Dish){
-    //PRIMERO BUSCAMOS SI EL PLATO YA EXISTE EN EL MENÚ
-    let index = this.menuList.findIndex(m=>m.id == dish.id);
-    
-    if(index != -1){
-      this.menuList[index].quantity = this.menuList[index].quantity + 1;
-    }
-    else{
-      dish.quantity = 1;
-      this.menuList.push(dish);
-    }
+  getMenuList(): void {
+    this.menuService.getDishes().subscribe((res: any) => {
+      this.dishList = res.dishes;
+    });
   }
 
-
-  removeDish(dish: Dish){
-    let index = this.menuList.findIndex(m=>m.id == dish.id);
-    
-    if(dish.quantity == 1){
-      this.menuList.splice(index, 1);
-    }
-    else{
-      this.menuList[index].quantity = this.menuList[index].quantity - 1;
-    }
+  updateMenu(dish: Dish): void {
+    this.menuService.addDish(dish);
   }
 
+  removeDish(dish: Dish): void {
+    this.menuService.removeDish(dish);
+  }
 
-  send(){
-    let customer : Customer = {
-      name: name,
-      level: "Regular"
-    }
+  send(): void {
+    // this.menuService.customer = customer;
 
-    this.menuService.customer = customer;
-
-    if(this.menuList.length==0){
-      this.app.mostrarMensajeError("Se necesita al menos un plato en la carta antes de procesar el pago.");
+    if (this.cartList.length === 0) {
+      this.app.mostrarMensajeError(
+        'Se necesita al menos un plato en la carta antes de procesar el pago.'
+      );
       return;
     }
 
-    let preciazo = this.menuService.check(this.menuList);
+    let preciazo = this.menuService.getTotalPrice();
     this.precioTotal = preciazo;
-
   }
-
 }

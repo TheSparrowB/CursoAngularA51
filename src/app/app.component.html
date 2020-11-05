@@ -1,6 +1,20 @@
 <!-- <app-menu></app-menu> -->
 <app-countries></app-countries>
 
+<p></p>
 
 
 <p-toast position="top-right"></p-toast>
+
+<p-blockUI [blocked]="blockedUI">
+    <div class="ng-trigger ng-trigger-animation ng-tns-c24-39 ui-dialog ui-confirmdialog ui-widget ui-widget-content ui-corner-all ui-shadow ng-star-inserted" style="z-index: 1005; transform: translateX(-50%) translateY(-50%) translateZ(0px) scale(1); opacity: 1;">
+        <div class="ui-dialog-content ui-widget-content">
+            <div class="p-col-12 p-md-12 p-lg-12" style="display: flex; justify-content: center;">
+                <img style="margin: auto;" src="assets/images/gifs/loader.gif">
+            </div>
+            <div class="p-col-12 p-md-12 p-lg-12" style="display: flex; justify-content: center;">
+                <p>Cargando...</p>
+            </div>
+        </div>        
+    </div>    
+</p-blockUI>

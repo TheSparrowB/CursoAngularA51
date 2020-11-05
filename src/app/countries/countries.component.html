@@ -1,25 +1,25 @@
 <button (click)="send(selected.currencies[0].name)">ENVIAR</button>
-<input type="text" [(ngModel)]="code" value="code">
+<input type="text" [(ngModel)]="code" value="code" />
 <button type="button" (click)="getInfo(code)">GET INFO</button>
 
+<div *ngIf="countriesService.selectedCountry$ | async as country">
+  <h1>El país encontrado es: {{ country.name | uppercase }}</h1>
+  <h1>{{ total | currency: country.currencies[0].symbol }}</h1>
+  <h1>{{ total | filesize: "ZB" | empty }}</h1>
 
-<div *ngIf="(countriesService.selectedCountry$ | async) as country">
-
-    <h1>El país encontrado es: {{country.name | uppercase}}</h1>
-    <h1>{{total | currency: country.currencies[0].symbol}}</h1>
-    <h1>{{total | filesize: "ZB" | empty }}</h1>
-
-    <div *ngFor="let mon of country.currencies">
-        <p>{{mon.name}} - {{mon.symbol}}</p>
-    </div>
-
+  <div *ngFor="let mon of country.currencies">
+    <p>{{ mon.name }} - {{ mon.symbol }}</p>
+  </div>
 </div>
 
-<div *ngIf="(countriesService.error$ | async) as error">
-    <h1>{{error}}</h1>
+<div *ngIf="countriesService.error$ | async as error">
+  <h1>{{ error }}</h1>
 </div>
 
-
-<hr>
-
-<!-- <app-detail></app-detail> -->
+<hr />
+<div class="p-col-12 p-buttonset">
+  <button pButton pRipple icon="pi pi-plus" label="ADD POST" (click)="addPost()"></button>
+  <button pButton pRipple icon="pi pi-pencil" label="PUT POST" (click)="putPost()"></button>
+  <button pButton pRipple icon="pi pi-file" label="PATCH POST" (click)="patchPost()"></button>
+  <button pButton pRipple icon="pi pi-trash" label="DELETE POST" (click)="deletePost()"></button>
+</div>

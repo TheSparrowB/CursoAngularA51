@@ -7,7 +7,7 @@
         { "name": "sal", "quantity": "3cdta" },
         { "name": "limon", "quantity": "5un" },
         { "name": "pescado", "quantity": "200gr" },
-        { "name": "camote", "quantity": "0.5un"}
+        { "name": "camote", "quantity": "0.5un" }
       ],
       "rating": 5,
       "spiciness": 4,
@@ -52,7 +52,7 @@
       "ingredient": [
         { "name": "arroz", "quantity": "1kg" },
         { "name": "pollo", "quantity": "1un" },
-        { "name": "huevo", "quantity": "2un"}
+        { "name": "huevo", "quantity": "2un" }
       ],
       "rating": 5,
       "spiciness": 0,
@@ -67,7 +67,7 @@
       "ingredient": [
         { "name": "tocino", "quantity": "3un" },
         { "name": "frijoles", "quantity": "1kg" },
-        { "name": "huevo", "quantity": "2un"}
+        { "name": "huevo", "quantity": "2un" }
       ],
       "rating": 2,
       "spiciness": 6,
@@ -76,5 +76,5 @@
       "inventoryStatus": "INSTOCK",
       "image": "https://tipsparatuviaje.com/wp-content/uploads/2020/03/desayuno-ingles-completo-1.jpg"
     }
-  ] 
+  ]
 }

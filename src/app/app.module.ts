@@ -12,7 +12,7 @@ import { CountriesComponent } from './countries/countries.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
@@ -22,6 +22,9 @@ import { DishPipe } from './pipes/dish.pipe';
 import { IngredientPipe } from './pipes/ingredient.pipe';
 import { BoxShadowDirective } from './directives/box-shadow.directive';
 import { DetailComponent } from './countries/detail/detail.component';
+import { MenubarModule } from 'primeng/menubar';
+import { RippleModule } from 'primeng/ripple';
+import { BlockUIModule } from 'primeng/blockui';
 
 @NgModule({
   declarations: [
@@ -49,9 +52,13 @@ import { DetailComponent } from './countries/detail/detail.component';
     ScrollingModule,
     ToastModule,
     PanelModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MenubarModule,
+    RippleModule,
+    BlockUIModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
